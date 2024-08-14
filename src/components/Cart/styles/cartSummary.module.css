@@ -1,0 +1,165 @@
+.summaryWrapper {
+  width: 95%;
+  height: 95%;
+  /* border: 1px solid red; */
+
+  @media (320px <=width<=480px) {
+    margin-left: auto;
+    margin-right: auto;
+
+    .summaryDetailsWrapper {
+      justify-content: center !important;
+
+      .summaryCard {
+        width: 85% !important;
+        /* border: 1px solid red; */
+        margin: 0 !important;
+        margin-top: 10px !important;
+      }
+    }
+  }
+
+  .summaryHeaderWrapper {
+    width: 100%;
+    height: 50px;
+    /* border: 1px solid red; */
+    padding: 8px 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .summaryDetailsWrapper {
+    width: 100%;
+    height: calc(100% - 50px);
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: center;
+
+    .summaryCard {
+      width: 70%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      /* border: 1px solid red; */
+      margin-top: 10px;
+      margin-left: 20px;
+
+      .rowGroupDiv {
+        width: 100%;
+        height: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        &:last-child {
+          height: 50px;
+          justify-content: center;
+          /* border-top: 1px solid #d0d5dd; */
+          margin-top: 10px;
+        }
+
+        .rowLabelDiv {
+          width: 50%;
+          height: 100%;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+
+          & p {
+            font-size: 0.85rem;
+            font-weight: 600;
+          }
+        }
+
+        .rowValueDiv {
+          width: 50%;
+          height: 100%;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+
+          & p {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #667085;
+          }
+        }
+
+        & button {
+          width: 100%;
+          height: 90%;
+          background-color: #c6f86b;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          border: none;
+          .btnTextDiv {
+            flex: 1;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: 1px solid red; */
+
+            & p {
+              font-weight: 500;
+              font-size: 0.9rem;
+            }
+          }
+
+          .btnIconDiv {
+            aspect-ratio: 1/1;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            & div {
+              width: 70%;
+              aspect-ratio: 1/1;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              padding: 10px;
+              background-color: #101828;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.badgeWrapper {
+  width: auto;
+  height: 80%;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .currencyIconDiv {
+    height: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid green; */
+    padding: 5px;
+  }
+
+  .priceValueDiv {
+    height: 100%;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid blue; */
+
+    & p {
+      font-size: 0.6rem;
+      font-weight: 500;
+    }
+  }
+}

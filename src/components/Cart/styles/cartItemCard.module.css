@@ -1,0 +1,215 @@
+.cardItemWrapper {
+  width: 95%;
+  height: 100px;
+  /* background-color: white; */
+  /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+  /* &:hover {
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
+      rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+  } */
+
+  display: grid;
+  grid-template-areas:
+    "imageCell titleCell priceCell quantityCell totalPriceCell"
+    "imageCell removeBtnCell priceCell quantityCell totalPriceCell";
+
+  grid-template-columns: auto minmax(0, 1fr) 150px 150px 150px;
+  grid-template-rows: 70% 30%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #d0d5dd;
+
+  @media (320px<=width<=480px) {
+    height: 150px;
+    grid-template-areas:
+      "imageCell titleCell titleCell titleCell"
+      "imageCell priceCell quantityCell totalPriceCell"
+      "imageCell removeBtnCell removeBtnCell removeBtnCell";
+
+    grid-template-columns: auto minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) 50px 30px;
+  }
+
+  .imageCell {
+    aspect-ratio: 1/1;
+    height: 100%;
+    grid-area: imageCell;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    & img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .titleCell {
+    width: 100%;
+    height: 100%;
+    grid-area: titleCell;
+    /* border: 1px solid green; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    & p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      font-weight: 500;
+      color: #1c3553;
+      margin-top: 10px;
+    }
+  }
+  .priceCell {
+    width: 100%;
+    height: 100%;
+    grid-area: priceCell;
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: "";
+      background-color: #d0d5dd;
+      height: 30%;
+      width: 1px;
+      left: 0;
+    }
+  }
+  .quantityCell {
+    width: 100%;
+    height: 100%;
+    grid-area: quantityCell;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "";
+      background-color: #d0d5dd;
+      height: 30%;
+      width: 1px;
+      left: 1px;
+    }
+  }
+  .totalPriceCell {
+    width: 100%;
+    height: 100%;
+    grid-area: totalPriceCell;
+    /* border: 1px solid peru; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "";
+      background-color: #d0d5dd;
+      height: 30%;
+      width: 1px;
+      left: 0;
+    }
+  }
+  .removeBtnCell {
+    width: 100%;
+    height: 100%;
+    grid-area: removeBtnCell;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    & button {
+      width: auto;
+      height: 80%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 8px 0px;
+      border: none;
+      border-bottom: 1px solid #d0d5dd;
+      background: none;
+      cursor: pointer;
+      & p {
+        font-size: 0.7rem;
+        font-weight: 500;
+        color: #d92d20;
+      }
+    }
+  }
+}
+
+.priceWrapper {
+  width: auto;
+  height: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .currencyIconDiv {
+    height: 100%;
+    aspect-ratio: 1/1;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+  }
+  .priceValueDiv {
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 0px;
+    & p {
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+  }
+}
+
+.quantityToggleWrapper {
+  width: auto;
+  height: 30px;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .toggleBtnDiv {
+    height: 100%;
+    aspect-ratio: 1/1;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .toggleBtnDivDec {
+    transform: rotate(180deg);
+  }
+  .quantityValueDiv {
+    display: flex;
+    height: 100%;
+    aspect-ratio: 1/1;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #d0d5dd;
+    border-radius: 0.3rem;
+
+    & p {
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+  }
+}

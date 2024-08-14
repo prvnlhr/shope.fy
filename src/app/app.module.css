@@ -1,0 +1,23 @@
+.rootLayoutWrapper {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: 80px minmax(0, 1fr);
+  grid-template-columns: 100%;
+  grid-template-areas:
+    "headerWrapper"
+    "contentWrapper";
+  z-index: 1;
+  box-sizing: border-box;
+  background-color: #fbfafe;
+}
+
+.contentWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}

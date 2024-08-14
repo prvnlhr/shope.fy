@@ -1,0 +1,37 @@
+.headerWrapper {
+  grid-area: headerWrapper;
+  width: 100%;
+  height: 100%;
+  max-height: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #d0d5dd;
+  background-color: #fbfafe;
+
+  .leftSection {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .appLogoDiv {
+      width: auto;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* border: 1px solid red; */
+      margin-left: 15px;
+    }
+  }
+
+  .rightSection {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}

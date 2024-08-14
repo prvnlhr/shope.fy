@@ -1,0 +1,36 @@
+.linkWrapper {
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  background-color: #101828;
+  padding: 5px 20px;
+  margin-right: 25px;
+
+  & p {
+    font-size: 0.9rem;
+    font-family: 500;
+    color: white;
+  }
+
+  .cartCountDiv {
+    position: absolute;
+    width: 20px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 0.01rem solid #10182862;
+    background-color: #c6f86b;
+    top: -10px;
+    left: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & p {
+      font-size: 0.6rem;
+      font-weight: 600;
+      color: #101828;
+    }
+  }
+}
