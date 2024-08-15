@@ -20,7 +20,6 @@ const PriceBadge = ({ price }) => {
 };
 const CartSummary = () => {
   const { summaryData } = useAppState();
-
   const deliveryHandlingCharges = 32.5;
   const subTotal = Number(summaryData.subTotal) || 0;
   const getTotalPrice = () => {

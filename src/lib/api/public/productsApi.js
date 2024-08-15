@@ -1,7 +1,7 @@
 import { revalidatePathHandler } from "@/app/revalidate";
 
 // get all products
-export async function getProducts(userId) {
+export async function getProducts() {
   try {
     const response = await fetch(`https://fakestoreapi.com/products`);
     if (!response.ok) {

@@ -4,7 +4,6 @@ import CartButton from "./CartButton";
 import AppLogo from "../AppLogo/AppLogo";
 import AuthBtn from "./AuthBtn";
 const MainHeader = async () => {
-  
   return (
     <nav className={styles.headerWrapper}>
       <div className={styles.leftSection}>

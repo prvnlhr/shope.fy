@@ -22,8 +22,10 @@
 
   @media (320px <=width<=480px) {
     width: 95%;
-    aspect-ratio: 2/3;
+    aspect-ratio: 2/2.8;
     margin-bottom: 30px;
+    grid-template-columns: 35% 65%;
+    padding: 10px;
   }
   .imageCell {
     grid-area: imageCell;
@@ -47,10 +49,11 @@
     /* border: 1px solid black; */
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     padding: 0px 0px;
 
     & p {
+      width: 80%;
       color: #1c3553;
       font-size: 0.8rem;
       line-height: 1.5;
@@ -61,17 +64,28 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: normal;
+
+      @media (320px<=width<=480px) {
+        font-size: clamp(
+          0.65rem,
+          0.050000000000000155rem + 2.999999999999999vw,
+          0.95rem
+        ) !important;
+      }
     }
   }
   .priceCell {
     grid-area: priceCell;
     width: 100%;
     height: 100%;
-    /* border: 1px solid green; */
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding: 0px 0px;
+
+    @media (320px<=width<=480px) {
+      width: auto;
+    }
 
     .priceWrapper {
       width: auto;
@@ -84,13 +98,12 @@
     }
     .currencyIconDiv {
       height: 100%;
-      aspect-ratio: 1/1;
+      aspect-ratio: 1/2;
       display: flex;
-      /* border: 1px solid black; */
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 5px;
+      padding: 1px;
     }
     .priceValueDiv {
       width: auto;
@@ -103,6 +116,13 @@
         font-size: 0.8rem;
         font-weight: 600;
         color: #667085;
+        @media (320px<=width<=480px) {
+          font-size: clamp(
+            0.5rem,
+            -0.10000000000000009rem + 3.0000000000000004vw,
+            0.8rem
+          ) !important;
+        }
       }
     }
   }
@@ -110,7 +130,6 @@
     grid-area: cartBtnCell;
     width: 100%;
     height: 100%;
-    /* border: 1px solid blue; */
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -118,7 +137,6 @@
     .btn {
       width: auto;
       height: 80%;
-      /* border: 1px solid red; */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -129,15 +147,29 @@
       .btnTextDiv {
         width: auto;
         height: 100%;
-        /* border: 1px solid green; */
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 0px 5px;
+        overflow: hidden;
+
         & p {
           font-size: 0.7rem;
           font-weight: 600;
           color: #101828;
+          white-space: nowrap;
+        }
+
+        @media (320px<=width<=480px) {
+          padding: 0px 0px;
+
+          & p {
+            font-size: clamp(
+              0.5rem,
+              -0.10000000000000009rem + 3.0000000000000004vw,
+              0.8rem
+            ) !important;
+          }
         }
       }
       .btnIconDiv {
@@ -146,8 +178,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        /* border: 1px solid blue; */
-
         & div {
           width: 85%;
           aspect-ratio: 1/1;
@@ -156,6 +186,9 @@
           align-items: center;
           background-color: #c6f86b;
           padding: 5px;
+          @media (320px<=width<=480px) {
+            width: 75%;
+          }
         }
         .isAddedClass {
           transform: rotate(180deg);

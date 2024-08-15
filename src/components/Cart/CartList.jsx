@@ -7,26 +7,26 @@ import { useAppState } from "@/context/AppContext";
 const CartList = ({ cartItemsList }) => {
   const { setSummaryData, setCartData } = useAppState();
   useEffect(() => {
-    const { subTotal, totalItems } = cartItemsList.reduce(
+    const { subTotal, totalItems, itemIds } = cartItemsList.reduce(
       (acc, curr) => {
         acc.subTotal += curr.price * curr.quantity;
         acc.totalItems += curr.quantity;
+        acc.itemIds = [...acc.itemIds, curr.refId];
         return acc;
       },
-      { subTotal: 0, totalItems: 0 }
+      { subTotal: 0, totalItems: 0, itemIds: [] }
     );
     setSummaryData((prev) => ({
       ...prev,
       subTotal: subTotal.toFixed(2),
     }));
-    const itemIds = cartItemsList.map((item) => item.refId);
     setCartData((prev) => ({ ...prev, totalItems, itemIds }));
   }, [cartItemsList]);
 
   return (
     <div className={styles.cartListWrapper}>
       {cartItemsList.map((item) => (
-        <CartItemCard item={item} />
+        <CartItemCard key={item._id} item={item} />
       ))}
     </div>
   );

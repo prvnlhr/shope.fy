@@ -178,7 +178,7 @@ const SignUpForm = () => {
           <div className={styles.buttonCell}>
             <button
               type="submit"
-              disable={formik.isSubmitting}
+              disable={formik.isSubmitting ? true : undefined}
               className={styles.btn}
             >
               <div className={styles.textDiv}>

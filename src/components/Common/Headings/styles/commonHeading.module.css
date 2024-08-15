@@ -18,6 +18,13 @@
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 5px;
+    @media (320px<=width<=480px) {
+      font-size: clamp(
+        0.7rem,
+        0.2999999999999998rem + 2.000000000000001vw,
+        0.9rem
+      ) !important;
+    }
   }
 }
 
@@ -26,7 +33,7 @@
   height: 30%;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   /* border: 1px solid blue; */
 
   &::after {

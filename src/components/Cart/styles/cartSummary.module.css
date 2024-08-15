@@ -69,6 +69,13 @@
           & p {
             font-size: 0.85rem;
             font-weight: 600;
+            @media (320px <=width<=480px) {
+              font-size: clamp(
+                0.7rem,
+                0.2999999999999998rem + 2.000000000000001vw,
+                0.9rem
+              ) !important;
+            }
           }
         }
 
@@ -83,6 +90,13 @@
             font-size: 0.75rem;
             font-weight: 500;
             color: #667085;
+            @media (320px <=width<=480px) {
+              font-size: clamp(
+                0.7rem,
+                0.2999999999999998rem + 2.000000000000001vw,
+                0.9rem
+              ) !important;
+            }
           }
         }
 

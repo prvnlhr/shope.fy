@@ -64,6 +64,14 @@
         & p {
           font-size: 0.75rem;
           font-weight: 500;
+
+          @media (320px<=width<=480px) {
+            font-size: clamp(
+              0.7rem,
+              -0.10000000000000031rem + 4.000000000000002vw,
+              1.1rem
+            ) !important;
+          }
         }
         &:hover {
           border-bottom: 1px solid #d0d5dd;

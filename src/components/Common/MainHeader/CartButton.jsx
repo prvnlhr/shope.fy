@@ -7,9 +7,11 @@ import { useSession } from "next-auth/react";
 import { getCartItems } from "@/lib/api/public/cartsApi";
 import useSWR from "swr";
 import Spinner from "../Icons/Spinner";
+import { usePathname } from "next/navigation";
 
 const CartButton = () => {
   const { data: session } = useSession();
+  const pathname = usePathname();
   const userId = session?.user?.userId;
   const { cartData, setCartData } = useAppState();
   const { data, error, isLoading } = useSWR(userId, getCartItems);
@@ -32,16 +34,18 @@ const CartButton = () => {
     }
   }, [data, setCartData]);
   return (
-    <Link href="/cart" className={styles.linkWrapper}>
-      <p>Cart</p>
-      <div className={styles.cartCountDiv}>
-        {isLoading ? (
-          <Spinner color={"#101828"} />
-        ) : (
-          <p>{cartData.totalItems}</p>
-        )}
-      </div>
-    </Link>
+    pathname !== "/cart" && (
+      <Link href="/cart" className={styles.linkWrapper}>
+        <p>Cart</p>
+        <div className={styles.cartCountDiv}>
+          {isLoading ? (
+            <Spinner color={"#101828"} />
+          ) : (
+            <p>{cartData.totalItems}</p>
+          )}
+        </div>
+      </Link>
+    )
   );
 };
 

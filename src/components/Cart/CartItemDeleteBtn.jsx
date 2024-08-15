@@ -9,11 +9,9 @@ const CartItemDeleteBtn = ({ itemId }) => {
     setIsDeleting(true);
     try {
       const res = await removeFromCart(itemId);
-      if (res?.message !== "Cart item deleted successfully") {
-        // TODO
-        console.error("Failed to remove the item from the cart:", res?.message);
-        return;
-      }
+      // if (res?.message !== "Cart item deleted successfully") {
+      //   return;
+      // }
     } catch (error) {
       console.error("An error occurred while deleting the cart item:", error);
     } finally {

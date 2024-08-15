@@ -9,18 +9,19 @@ import { useAppState } from "@/context/AppContext";
 import { useRouter } from "next/navigation";
 
 const AddCartBtn = ({ product }) => {
-  const [isAdding, setIsAdding] = useState(false);
   const router = useRouter();
 
   const { data: session } = useSession();
   const userId = session?.user?.userId;
 
+  const [isAdding, setIsAdding] = useState(false);
   const { cartData, setCartData } = useAppState();
   const { itemIds } = cartData;
 
   const isAdded = () => {
     return itemIds.includes(product.id);
   };
+
   const handleBtnClicked = async () => {
     if (isAdded()) {
       router.push("/cart");

@@ -13,6 +13,13 @@
     font-size: 0.9rem;
     font-family: 500;
     color: white;
+    @media (320px<=width<=480px) {
+      font-size: clamp(
+        0.8rem,
+        0.5000000000000002rem + 1.4999999999999991vw,
+        0.95rem
+      ) !important;
+    }
   }
 
   .cartCountDiv {
@@ -31,6 +38,13 @@
       font-size: 0.6rem;
       font-weight: 600;
       color: #101828;
+      @media (320px<=width<=480px) {
+        font-size: clamp(
+          0.8rem,
+          0.5000000000000002rem + 1.4999999999999991vw,
+          0.95rem
+        ) !important;
+      }
     }
   }
 }

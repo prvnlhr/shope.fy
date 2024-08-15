@@ -22,6 +22,14 @@
     & p {
       color: #f93232;
       font-weight: 500;
+
+      @media (320px<=width<=480px) {
+        font-size: clamp(
+          0.8rem,
+          0.5000000000000002rem + 1.4999999999999991vw,
+          0.95rem
+        ) !important;
+      }
     }
   }
   .link {

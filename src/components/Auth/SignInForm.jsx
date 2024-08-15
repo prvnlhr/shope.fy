@@ -60,6 +60,11 @@ const SignInForm = () => {
     },
   });
 
+  const handleDemoLogin = () => {
+    formik.setFieldValue("email", "prvnlhr522@gmail.com");
+    formik.setFieldValue("password", "123456");
+  };
+
   return (
     <div className={styles.pageWrapper}>
       <div className={styles.SignInFormWrapper}>
@@ -122,16 +127,19 @@ const SignInForm = () => {
                 />
               </div>
             </div>
-            <div className={styles.errorGroup}>
+            <div className={`${styles.errorGroup}`}>
               {formik.errors.password && formik.touched.password && (
                 <p>{formik.errors.password}</p>
               )}
+              <button type="button" onClick={handleDemoLogin}>
+                Demo Login
+              </button>
             </div>
           </div>
           <div className={styles.buttonCell}>
             <button
               type="submit"
-              disable={formik.isSubmitting}
+              disable={formik.isSubmitting ? true : undefined}
               className={styles.btn}
             >
               <div className={styles.textDiv}>
