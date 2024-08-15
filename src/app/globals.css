@@ -18,7 +18,12 @@ p {
 
 button {
   font-family: inherit;
+  color: inherit;
 }
 a {
   text-decoration: none;
+}
+input {
+  font-family: inherit;
+  color: inherit;
 }

@@ -1,8 +1,11 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import styles from "./styles/cartItemCard.module.css";
 import CurrencyIcon from "../Common/Icons/CurrencyIcon";
 import ArrowIcon from "../Common/Icons/ArrowIcon";
-
+import Image from "next/image";
+import CartItemDeleteBtn from "./CartItemDeleteBtn";
+import { updateCartItem } from "@/lib/api/public/cartsApi";
 const PriceBadge = ({ val }) => {
   return (
     <div className={styles.priceWrapper}>
@@ -15,41 +18,71 @@ const PriceBadge = ({ val }) => {
     </div>
   );
 };
-const CartItemCard = () => {
+const CartItemCard = ({ item }) => {
+  const [quantity, setQuantity] = useState(item.quantity);
+  const [isUpdating, setIsUpdating] = useState(false);
+
+  const handleQuantityValueChange = async (val) => {
+    const newValue = quantity + val;
+    const finalValue = newValue === 0 ? quantity : newValue;
+    setQuantity(finalValue);
+    if (quantity === finalValue) {
+      return;
+    }
+    try {
+      setIsUpdating(true);
+      const updateData = {
+        quantity: finalValue,
+      };
+      const res = await updateCartItem(item._id, updateData);
+      console.log(error);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsUpdating(false);
+    }
+  };
   return (
     <div className={styles.cardItemWrapper}>
       <div className={styles.imageCell}>
-        <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" />
+        <div>
+          <Image src={item.image} alt={item.title} fill={true} />
+        </div>
       </div>
       <div className={styles.titleCell}>
-        <p>Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</p>
+        <p>{item.title}</p>
       </div>
       <div className={styles.priceCell}>
-        <PriceBadge val={"255.25"} />
+        <PriceBadge val={item.price} />
       </div>
       <div className={styles.quantityCell}>
         <div className={styles.quantityToggleWrapper}>
           <button
             type="button"
+            disabled={isUpdating}
+            onClick={() => handleQuantityValueChange(-1)}
             className={`${styles.toggleBtnDiv} ${styles.toggleBtnDivDec}`}
           >
-            <ArrowIcon />
+            <ArrowIcon color={isUpdating ? "#C5C0DB" : "#101828"} />
           </button>
           <div className={styles.quantityValueDiv}>
-            <p>2</p>
+            <p>{quantity}</p>
           </div>
-          <button type="button" className={styles.toggleBtnDiv}>
-            <ArrowIcon />
+          <button
+            type="button"
+            disabled={isUpdating}
+            onClick={() => handleQuantityValueChange(1)}
+            className={styles.toggleBtnDiv}
+          >
+            <ArrowIcon color={isUpdating ? "#C5C0DB" : "#101828"} />
           </button>
         </div>
       </div>
       <div className={styles.totalPriceCell}>
-        <PriceBadge val={"510.50"} />
+        <PriceBadge val={(item.price * quantity).toFixed(2)} />
       </div>
       <div className={styles.removeBtnCell}>
-        <button type="button">
-          <p>Remove</p>
-        </button>
+        <CartItemDeleteBtn itemId={item._id} />
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import styles from "./app.module.css";
 import "./globals.css";
 import MainHeader from "../components/Common/MainHeader/MainHeader";
+import { CombinedProviders } from "./provider";
 
 const satoshi = localFont({
   src: [
@@ -76,15 +77,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`
-        ${satoshi.className} antialiased`}
-      >
-        <div className={styles.rootLayoutWrapper}>
-          <MainHeader />
-          <div className={styles.contentWrapper}>{children}</div>
-        </div>
-      </body>
+      <CombinedProviders>
+        <body
+          className={`
+          ${satoshi.className} antialiased`}
+        >
+          <div className={styles.rootLayoutWrapper}>
+            <MainHeader />
+            <div className={styles.contentWrapper}>{children}</div>
+          </div>
+        </body>
+      </CombinedProviders>
     </html>
   );
 }

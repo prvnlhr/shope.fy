@@ -11,9 +11,9 @@ const CurrencyIcon = () => {
       <path
         d="M2.25 1.125H6.75M2.25 3H6.75M5.4375 7.875L2.25 4.875H3.375C5.87512 4.875 5.87512 1.125 3.375 1.125"
         stroke="black"
-        stroke-width="0.75"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

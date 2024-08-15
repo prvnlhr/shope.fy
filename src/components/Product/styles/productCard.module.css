@@ -33,11 +33,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    & img {
-      width: 80%;
-      height: 75%;
-      object-fit: contain;
+    & div {
+      width: 70%;
+      aspect-ratio: 1/1;
+      /* border: 1px solid red; */
+      position: relative;
     }
   }
   .titleCell {
@@ -112,7 +112,7 @@
     height: 100%;
     /* border: 1px solid blue; */
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 
     .btn {
@@ -156,6 +156,9 @@
           align-items: center;
           background-color: #c6f86b;
           padding: 5px;
+        }
+        .isAddedClass {
+          transform: rotate(180deg);
         }
       }
     }

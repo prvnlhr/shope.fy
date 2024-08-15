@@ -1,13 +1,8 @@
 .cardItemWrapper {
   width: 95%;
   height: 100px;
-  /* background-color: white; */
-  /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
-  /* &:hover {
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
-      rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
-  } */
-
+  max-height: 100px;
+  min-height: 100px;
   display: grid;
   grid-template-areas:
     "imageCell titleCell priceCell quantityCell totalPriceCell"
@@ -21,6 +16,8 @@
 
   @media (320px<=width<=480px) {
     height: 150px;
+    max-height: 150px;
+    min-height: 150px;
     grid-template-areas:
       "imageCell titleCell titleCell titleCell"
       "imageCell priceCell quantityCell totalPriceCell"
@@ -36,30 +33,36 @@
     grid-area: imageCell;
     /* border: 1px solid red; */
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    padding: 10px;
-    & img {
-      object-fit: contain;
-      width: 100%;
-      height: 100%;
+    & div {
+      position: relative;
+      width: 70%;
+      aspect-ratio: 1/1;
+      /* border: 1px solid red; */
     }
   }
   .titleCell {
     width: 100%;
     height: 100%;
     grid-area: titleCell;
-    /* border: 1px solid green; */
     display: flex;
     justify-content: flex-start;
     align-items: center;
 
     & p {
+      width: 95%;
       font-size: 0.9rem;
       line-height: 1.5;
       font-weight: 500;
       color: #1c3553;
       margin-top: 10px;
+
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
   .priceCell {
@@ -124,22 +127,30 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-
-    & button {
+    .deleteBtnWrapper {
       width: auto;
-      height: 80%;
+      height: 70%;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 8px 0px;
-      border: none;
-      border-bottom: 1px solid #d0d5dd;
-      background: none;
-      cursor: pointer;
-      & p {
-        font-size: 0.7rem;
-        font-weight: 500;
-        color: #d92d20;
+      /* border: 1px solid red; */
+
+      & button {
+        width: auto;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 0px;
+        border: none;
+        border-bottom: 1px solid #d0d5dd;
+        background: none;
+        cursor: pointer;
+        & p {
+          font-size: 0.7rem;
+          font-weight: 500;
+          color: #d92d20;
+        }
       }
     }
   }

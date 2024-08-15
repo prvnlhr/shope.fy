@@ -1,12 +1,9 @@
 import React from "react";
 import ProductsList from "../components/Product/ProductsList";
+import { getProducts } from "@/lib/api/public/productsApi";
 
 const ProductListPage = async () => {
-  const response = await fetch("https://fakestoreapi.com/products", {
-    cache: "no-store",
-  });
-  const products = await response.json();
-  console.log(products);
+  const products = await getProducts();
   return <ProductsList products={products} />;
 };
 

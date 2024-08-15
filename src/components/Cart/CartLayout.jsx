@@ -23,7 +23,7 @@ const BreadCrumbsSeparator = () => {
     </svg>
   );
 };
-const CartLayout = () => {
+const CartLayout = ({ cartItemsList }) => {
   const breadcrumbsLinks = [
     {
       linkText: "Products",
@@ -34,6 +34,7 @@ const CartLayout = () => {
       href: "#",
     },
   ];
+
   return (
     <div className={styles.layoutWrapper}>
       <div className={styles.breadCrumbsCell}>
@@ -54,7 +55,7 @@ const CartLayout = () => {
         <CommonHeading text={"CART"} />
       </div>
       <div className={styles.cartListCell}>
-        <CartList />
+        <CartList cartItemsList={cartItemsList} />
       </div>
       <div className={styles.cartSummaryCell}>
         <CartSummary />

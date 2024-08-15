@@ -2,12 +2,19 @@ import React from "react";
 import styles from "./styles/productCard.module.css";
 import Image from "next/image";
 import CurrencyIcon from "../Common/Icons/CurrencyIcon";
-import ArrowIcon from "../Common/Icons/ArrowIcon";
+import AddCartBtn from "./AddCartBtn";
 const ProductCard = ({ product }) => {
   return (
     <div className={styles.cardWrapper}>
       <div className={styles.imageCell}>
-        <img src={product.image} alt={product.title} fill={true} />
+        <div>
+          <Image
+            src={product.image}
+            alt={product.title}
+            quality={50}
+            fill={true}
+          />
+        </div>
       </div>
       <div className={styles.titleCell}>
         <p>{product.title}</p>
@@ -23,16 +30,7 @@ const ProductCard = ({ product }) => {
         </div>
       </div>
       <div className={styles.cartBtnCell}>
-        <button className={styles.btn} type="button">
-          <div className={styles.btnTextDiv}>
-            <p>Add to cart</p>
-          </div>
-          <div className={styles.btnIconDiv}>
-            <div>
-              <ArrowIcon />
-            </div>
-          </div>
-        </button>
+        <AddCartBtn product={product} />
       </div>
     </div>
   );
