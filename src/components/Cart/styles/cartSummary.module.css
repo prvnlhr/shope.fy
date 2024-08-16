@@ -10,7 +10,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 5px 15px;
+    padding: 5px 20px;
   }
 
   .mainWrapper {
@@ -40,7 +40,7 @@
   /* border: 1px solid red; */
   display: grid;
   grid-template-areas: "labelCell valueCell";
-  grid-template-columns: 60% 40%;
+  grid-template-columns: minmax(0, 1fr) auto;
   grid-template-rows: 100%;
 
   .labelCell {
@@ -55,6 +55,13 @@
     & p {
       font-size: 0.9rem;
       font-weight: 500;
+      @media (320px<=width<=480px) {
+        font-size: clamp(
+          0.8rem,
+          0.40000000000000013rem + 1.9999999999999998vw,
+          1rem
+        ) !important;
+      }
     }
   }
 
@@ -94,8 +101,16 @@
     /* border: 1px solid blue; */
 
     & p {
-      font-size: 0.8rem;
-      font-weight: 500;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #667085;
+      @media (320px<=width<=480px) {
+        font-size: clamp(
+          0.8rem,
+          0.40000000000000013rem + 1.9999999999999998vw,
+          1rem
+        ) !important;
+      }
     }
   }
 }
