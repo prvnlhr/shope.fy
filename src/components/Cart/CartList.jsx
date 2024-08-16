@@ -25,9 +25,11 @@ const CartList = ({ cartItemsList }) => {
 
   return (
     <div className={styles.cartListWrapper}>
-      {cartItemsList.map((item) => (
-        <CartItemCard key={item._id} item={item} />
-      ))}
+      {cartItemsList.length > 0 ? (
+        cartItemsList.map((item) => <CartItemCard key={item._id} item={item} />)
+      ) : (
+        <p className={styles.emptyListMsg}>Add items to show</p>
+      )}
     </div>
   );
 };

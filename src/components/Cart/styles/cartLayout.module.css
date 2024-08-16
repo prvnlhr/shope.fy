@@ -17,7 +17,7 @@
       "cartListCell"
       "cartSummaryCell";
     grid-template-columns: 100%;
-    grid-template-rows: 30px 50px 80vh 400px;
+    grid-template-rows: 30px 50px auto 400px;
     overflow-y: scroll;
     &::-webkit-scrollbar {
       display: none;
@@ -102,10 +102,13 @@
   .cartListCell {
     grid-area: cartListCell;
     width: 100%;
-    height: 100%;
+    height: auto;
+    min-height: auto;
+    max-height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* border: 1px solid red; */
   }
   .cartSummaryCell {
     grid-area: cartSummaryCell;
