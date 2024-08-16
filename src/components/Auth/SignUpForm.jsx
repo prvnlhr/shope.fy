@@ -179,7 +179,7 @@ const SignUpForm = () => {
             <button
               type="submit"
               disable={formik.isSubmitting ? true : undefined}
-              className={styles.btn}
+              className={styles.submitBtn}
             >
               <div className={styles.textDiv}>
                 <p>SignUp</p>
