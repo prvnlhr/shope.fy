@@ -1,5 +1,3 @@
-import { revalidatePathHandler } from "@/app/revalidate";
-
 // get all products
 export async function getProducts() {
   try {

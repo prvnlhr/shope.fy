@@ -1,4 +1,5 @@
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "http://127.0.0.1:3000";
+const BASE_URL =
+  process.env.NEXT_PUBLIC_BASE_URL || "https://shope-fy.vercel.app";
 
 export async function signUp(userData) {
   try {

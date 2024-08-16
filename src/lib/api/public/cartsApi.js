@@ -2,7 +2,7 @@ import { revalidatePathHandler } from "@/app/revalidate";
 
 // get all cart items
 const BASE_URL =
-  process.env.NEXT_PUBLIC_BASE_URL || "https://doer-next.vercel.app";
+  process.env.NEXT_PUBLIC_BASE_URL || "https://shope-fy.vercel.app";
 
 export async function getCartItems(userId) {
   try {
