@@ -20,11 +20,12 @@ const PriceBadge = ({ price }) => {
 };
 
 const CartSummary = () => {
-  const { summaryData } = useAppState();
+  const { summaryData, cartData } = useAppState();
+  const { totalItems } = cartData;
   const deliveryHandlingCharges = 32.5;
   const subTotal = Number(summaryData.subTotal) || 0;
   const getTotalPrice = () => {
-    let totalPrice = subTotal + deliveryHandlingCharges;
+    let totalPrice = subTotal > 0 ? subTotal + deliveryHandlingCharges : 0;
     return totalPrice ? totalPrice.toFixed(2) : 0;
   };
 
@@ -51,7 +52,7 @@ const CartSummary = () => {
               <PriceBadge price={deliveryHandlingCharges} />
             </div>
           </div>
-          <div className={styles.cardRow}>
+          <div className={`${styles.cardRow} ${styles.totalPriceRow}`}>
             <div className={styles.labelCell}>
               <p>Total Price</p>
             </div>
@@ -60,14 +61,16 @@ const CartSummary = () => {
             </div>
           </div>
           <div className={styles.checkoutBtnWrapper}>
-            <button type="button" className={styles.checkoutBtn}>
-              <div className={styles.buttonTextDiv}>
-                <p>Checkout</p>
-              </div>
-              <div className={styles.btnIconDiv}>
-                <ArrowIcon color={"white"} />
-              </div>
-            </button>
+            {totalItems > 0 && (
+              <button type="button" className={styles.checkoutBtn}>
+                <div className={styles.buttonTextDiv}>
+                  <p>Checkout</p>
+                </div>
+                <div className={styles.btnIconDiv}>
+                  <ArrowIcon color={"white"} />
+                </div>
+              </button>
+            )}
           </div>
         </div>
       </div>

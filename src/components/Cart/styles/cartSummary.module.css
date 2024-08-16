@@ -75,6 +75,9 @@
     align-items: center;
   }
 }
+.totalPriceRow {
+  border-top: 1px solid #d0d5dd;
+}
 
 .badgeWrapper {
   width: auto;
