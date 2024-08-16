@@ -55,6 +55,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  border: 1px solid blue;
   &:last-child {
     height: 50px;
     justify-content: center;
@@ -68,6 +69,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    border: 1px solid orange;
 
     & p {
       font-size: 0.85rem;
@@ -88,6 +90,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    border: 1px solid green;
 
     & p {
       font-size: 0.75rem;
