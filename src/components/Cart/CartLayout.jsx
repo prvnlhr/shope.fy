@@ -39,7 +39,7 @@ const CartLayout = ({ cartItemsList }) => {
     <div className={styles.layoutWrapper}>
       <div className={styles.breadCrumbsCell}>
         {breadcrumbsLinks.map((link, index) => (
-          <Link className={styles.breadCrumbsLink} href={link.href}>
+          <Link key={index} className={styles.breadCrumbsLink} href={link.href}>
             <div className={styles.breadCrumbsTextDiv}>
               <p>{link.linkText}</p>
             </div>

@@ -10,7 +10,7 @@ const ProductsList = ({ products }) => {
       </div>
       <div className={styles.listItemsWrapper}>
         {products.map((product) => (
-          <ProductCard product={product} />
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
     </div>
