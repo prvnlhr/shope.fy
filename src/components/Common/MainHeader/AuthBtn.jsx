@@ -13,7 +13,7 @@ const AuthBtn = () => {
 
   const handleSignOut = async () => {
     setIsSigningOut(true);
-    await signOut({ redirect: false });
+    await signOut({ redirect: true });
     setIsSigningOut(false);
   };
 

@@ -7,10 +7,10 @@ import { useSession } from "next-auth/react";
 import Spinner from "../Common/Icons/Spinner";
 import { useAppState } from "@/context/AppContext";
 import { useRouter } from "next/navigation";
+import { addToLocalCart } from "@/lib/utils/cartUtils";
 
 const AddCartBtn = ({ product }) => {
   const router = useRouter();
-
   const { data: session } = useSession();
   const userId = session?.user?.userId;
 
@@ -25,6 +25,9 @@ const AddCartBtn = ({ product }) => {
   const handleBtnClicked = async () => {
     if (isAdded()) {
       router.push("/cart");
+      return;
+    }
+    if (!userId) {
       return;
     }
     setIsAdding(true);

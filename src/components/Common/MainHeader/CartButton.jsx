@@ -4,7 +4,7 @@ import styles from "./styles/cartBtn.module.css";
 import React, { useEffect } from "react";
 import { useAppState } from "@/context/AppContext";
 import { useSession } from "next-auth/react";
-import { getCartItems } from "@/lib/api/public/cartsApi";
+import { fetchCartItems } from "@/lib/api/public/cartsApi";
 import useSWR from "swr";
 import Spinner from "../Icons/Spinner";
 import { usePathname } from "next/navigation";
@@ -14,7 +14,7 @@ const CartButton = () => {
   const pathname = usePathname();
   const userId = session?.user?.userId;
   const { cartData, setCartData } = useAppState();
-  const { data, error, isLoading } = useSWR(userId, getCartItems);
+  const { data, error, isLoading } = useSWR(userId, fetchCartItems);
 
   useEffect(() => {
     if (data) {

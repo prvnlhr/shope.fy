@@ -4,7 +4,7 @@ import { revalidatePathHandler } from "@/app/revalidate";
 const BASE_URL =
   process.env.NEXT_PUBLIC_BASE_URL || "https://shope-fy.vercel.app";
 
-export async function getCartItems(userId) {
+export async function fetchCartItems(userId) {
   try {
     const response = await fetch(`${BASE_URL}/api/cart/user/${userId}`);
     if (!response.ok) {
