@@ -7,7 +7,6 @@ import { useSession } from "next-auth/react";
 import Spinner from "../Common/Icons/Spinner";
 import { useAppState } from "@/context/AppContext";
 import { useRouter } from "next/navigation";
-import { addToLocalCart } from "@/lib/utils/cartUtils";
 
 const AddCartBtn = ({ product }) => {
   const router = useRouter();
