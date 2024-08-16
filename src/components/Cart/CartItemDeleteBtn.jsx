@@ -1,17 +1,31 @@
 "use client";
-import { removeFromCart } from "@/lib/api/public/cartsApi";
+import { removeProductFromDBCart } from "@/lib/api/public/cartsApi";
 import React, { useState } from "react";
 import Spinner from "../Common/Icons/Spinner";
 import styles from "./styles/cartItemCard.module.css";
+import { useSession } from "next-auth/react";
+import { deleteLocalCartItem } from "@/lib/utils/cartUtils";
+import { useAppState } from "@/context/AppContext";
+
 const CartItemDeleteBtn = ({ itemId }) => {
   const [isDeleting, setIsDeleting] = useState(false);
+
+  const { removeProductFromContextCart } = useAppState();
+
+  const { data: session } = useSession();
+  const userId = session?.user?.userId;
+
   const handleDeleteItem = async () => {
     setIsDeleting(true);
     try {
-      const res = await removeFromCart(itemId);
-      // if (res?.message !== "Cart item deleted successfully") {
-      //   return;
-      // }
+      if (userId) {
+        console.log(itemId);
+        const res = await removeProductFromDBCart(itemId);
+        removeProductFromContextCart(itemId);
+      } else {
+        deleteLocalCartItem(itemId);
+        removeProductFromContextCart(itemId);
+      }
     } catch (error) {
       console.error("An error occurred while deleting the cart item:", error);
     } finally {

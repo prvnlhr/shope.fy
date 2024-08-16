@@ -38,7 +38,7 @@ const CartItemCard = ({ item }) => {
         <PriceBadge val={(item.price * item.quantity).toFixed(2)} />
       </div>
       <div className={styles.removeBtnCell}>
-        <CartItemDeleteBtn itemId={item._id} />
+        <CartItemDeleteBtn itemId={item._id ? item._id : item.id} />
       </div>
     </div>
   );

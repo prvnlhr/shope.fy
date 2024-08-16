@@ -17,7 +17,7 @@ export async function fetchCartItems(userId) {
 }
 
 // add item to cart
-export async function addToCart(userId, productData) {
+export async function addProductToDBCart(userId, productData) {
   try {
     const response = await fetch(`${BASE_URL}/api/cart/user/${userId}`, {
       method: "POST",
@@ -38,8 +38,7 @@ export async function addToCart(userId, productData) {
 }
 
 // delete cart item
-export async function removeFromCart(productId) {
-  console.log(productId);
+export async function removeProductFromDBCart(productId) {
   try {
     const response = await fetch(`${BASE_URL}/api/cart/${productId}`, {
       method: "DELETE",
@@ -57,7 +56,7 @@ export async function removeFromCart(productId) {
 }
 
 // update cart item
-export async function updateCartItem(productId, productData) {
+export async function updateCartItemInDB(productId, productData) {
   try {
     const response = await fetch(`${BASE_URL}/api/cart/${productId}`, {
       method: "PATCH",

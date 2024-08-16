@@ -1,38 +1,34 @@
 "use client";
 import Link from "next/link";
 import styles from "./styles/cartBtn.module.css";
-import React, { useEffect } from "react";
+import React, { useEffect, useId } from "react";
 import { useAppState } from "@/context/AppContext";
 import { useSession } from "next-auth/react";
 import { fetchCartItems } from "@/lib/api/public/cartsApi";
 import useSWR from "swr";
 import Spinner from "../Icons/Spinner";
 import { usePathname } from "next/navigation";
+import { fetchLocalCartItems } from "@/lib/utils/cartUtils";
 
 const CartButton = () => {
   const { data: session } = useSession();
   const pathname = usePathname();
   const userId = session?.user?.userId;
-  const { cartData, setCartData } = useAppState();
-  const { data, error, isLoading } = useSWR(userId, fetchCartItems);
+  const { cartData, setCartItemsContext } = useAppState();
+  const { data, error, isLoading } = useSWR(
+    userId ? [userId] : null,
+    fetchCartItems
+  );
 
   useEffect(() => {
-    if (data) {
-      const { totalItems, itemIds } = data.reduce(
-        (acc, curr) => {
-          acc.subTotal += curr.price * curr.quantity;
-          acc.totalItems += curr.quantity;
-          acc.itemIds.push(curr.refId);
-          return acc;
-        },
-        { totalItems: 0, itemIds: [] }
-      );
-      setCartData({
-        totalItems,
-        itemIds,
-      });
+    if (userId && data) {
+      setCartItemsContext(data);
+    } else if (!userId) {
+      const localCartData = fetchLocalCartItems();
+      setCartItemsContext(localCartData);
     }
-  }, [data, setCartData]);
+  }, [userId, data]);
+
   return (
     pathname !== "/cart" && (
       <Link href="/cart" className={styles.linkWrapper}>

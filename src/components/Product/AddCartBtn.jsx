@@ -2,11 +2,12 @@
 import React, { useState } from "react";
 import styles from "./styles/productCard.module.css";
 import ArrowIcon from "../Common/Icons/ArrowIcon";
-import { addToCart } from "@/lib/api/public/cartsApi";
+import { addProductToDBCart } from "@/lib/api/public/cartsApi";
 import { useSession } from "next-auth/react";
 import Spinner from "../Common/Icons/Spinner";
 import { useAppState } from "@/context/AppContext";
 import { useRouter } from "next/navigation";
+import { addToLocalCart } from "@/lib/utils/cartUtils";
 
 const AddCartBtn = ({ product }) => {
   const router = useRouter();
@@ -14,11 +15,10 @@ const AddCartBtn = ({ product }) => {
   const userId = session?.user?.userId;
 
   const [isAdding, setIsAdding] = useState(false);
-  const { cartData, setCartData } = useAppState();
-  const { itemIds } = cartData;
+  const { isProductInCart, addProductToContextCart } = useAppState();
 
   const isAdded = () => {
-    return itemIds.includes(product.id);
+    return isProductInCart(product.id);
   };
 
   const handleBtnClicked = async () => {
@@ -26,18 +26,17 @@ const AddCartBtn = ({ product }) => {
       router.push("/cart");
       return;
     }
-    if (!userId) {
-      return;
-    }
     setIsAdding(true);
     try {
-      const res = await addToCart(userId, product);
-      if (res && res.message === "Item added to cart successfully") {
-        setCartData((prev) => ({
-          ...prev,
-          itemIds: [...prev.itemIds, product.id],
-          totalItems: prev.totalItems + 1,
-        }));
+      const productWithQuant = { ...product, quantity: 1 };
+      if (userId) {
+        const res = await addProductToDBCart(userId, product);
+        if (res && res.message === "Item added to cart successfully") {
+          addProductToContextCart(productWithQuant);
+        }
+      } else {
+        addToLocalCart(productWithQuant);
+        addProductToContextCart(productWithQuant);
       }
     } catch (error) {
       console.error("Error in toggling item to cart:", error);
