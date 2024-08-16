@@ -1,182 +1,143 @@
 .summaryWrapper {
   width: 95%;
   height: 95%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
-  @media (320px <=width<=480px) {
-    margin-left: auto;
-    margin-right: auto;
-
-    .summaryDetailsWrapper {
-      justify-content: center !important;
-
-      .summaryCard {
-        width: 85% !important;
-        /* border: 1px solid red; */
-        margin: 0 !important;
-        margin-top: 10px !important;
-      }
-    }
-  }
-
-  .summaryHeaderWrapper {
+  .headerWrapper {
     width: 100%;
     height: 50px;
-    border: 1px solid red;
-    padding: 8px 20px;
+    /* border: 1px solid red; */
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    padding: 5px 15px;
   }
 
-  .summaryDetailsWrapper {
+  .mainWrapper {
     width: 100%;
     height: calc(100% - 50px);
-    border: 1px solid blue;
+    /* border: 1px solid red; */
     display: flex;
     justify-content: center;
+    align-items: flex-start;
   }
 }
 
 .summaryCard {
-  width: 70%;
+  width: 80%;
   height: auto;
+  /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
+  align-items: center;
+  justify-content: flex-start;
   margin-top: 10px;
-  margin-left: 20px;
 }
 
-.rowGroupDiv {
+.cardRow {
   width: 100%;
-  height: 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  border: 1px solid blue;
-  &:last-child {
-    height: 50px;
-    justify-content: center;
-    /* border-top: 1px solid #d0d5dd; */
-    margin-top: 10px;
-  }
+  height: 40px;
+  /* border: 1px solid red; */
+  display: grid;
+  grid-template-areas: "labelCell valueCell";
+  grid-template-columns: 60% 40%;
+  grid-template-rows: 100%;
 
-  .rowLabelDiv {
-    width: 50%;
+  .labelCell {
+    grid-area: labelCell;
+    width: 100%;
     height: 100%;
+    /* border: 1px solid green; */
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    border: 1px solid orange;
 
     & p {
-      font-size: 0.85rem;
-      font-weight: 600;
-      @media (320px <=width<=480px) {
-        font-size: clamp(
-          0.7rem,
-          0.2999999999999998rem + 2.000000000000001vw,
-          0.9rem
-        ) !important;
-      }
+      font-size: 0.9rem;
+      font-weight: 500;
     }
   }
 
-  .rowValueDiv {
-    width: 50%;
+  .valueCell {
+    grid-area: valueCell;
+    width: 100%;
     height: 100%;
+    /* border: 1px solid blue; */
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    border: 1px solid green;
-
-    & p {
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: #667085;
-      @media (320px <=width<=480px) {
-        font-size: clamp(
-          0.7rem,
-          0.2999999999999998rem + 2.000000000000001vw,
-          0.9rem
-        ) !important;
-      }
-    }
-  }
-
-  & button {
-    width: 100%;
-    height: 90%;
-    background-color: #c6f86b;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    border: none;
-    .btnTextDiv {
-      flex: 1;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      /* border: 1px solid red; */
-
-      & p {
-        font-weight: 500;
-        font-size: 0.9rem;
-      }
-    }
-
-    .btnIconDiv {
-      aspect-ratio: 1/1;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      & div {
-        width: 70%;
-        aspect-ratio: 1/1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
-        background-color: #101828;
-      }
-    }
   }
 }
 
 .badgeWrapper {
   width: auto;
-  height: 80%;
+  height: 30px;
   /* border: 1px solid red; */
+  display: flex;
+
+  .currencyIconDiv {
+    aspect-ratio: 1/2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid green; */
+    padding: 1%;
+  }
+
+  .textDiv {
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid blue; */
+
+    & p {
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+  }
+}
+.checkoutBtnWrapper {
+  height: 80px;
+  width: 100%;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.checkoutBtn {
+  width: 100%;
+  height: 40px;
+  background-color: #d0f77f;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding: 5px 5px;
+  border: none;
 
-  .currencyIconDiv {
+  .buttonTextDiv {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & p {
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+  }
+
+  .btnIconDiv {
     height: 100%;
     aspect-ratio: 1/1;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border: 1px solid green; */
-    padding: 5px;
-  }
-
-  .priceValueDiv {
-    height: 100%;
-    width: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* border: 1px solid blue; */
-
-    & p {
-      font-size: 0.6rem;
-      font-weight: 500;
-    }
+    background-color: #121827;
+    padding: 3%;
   }
 }
