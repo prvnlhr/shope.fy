@@ -4,7 +4,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid red; */
   flex-direction: column;
 }
 .headingTextDiv {
@@ -13,7 +12,6 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  /* border: 1px solid red; */
   & p {
     font-size: 0.8rem;
     font-weight: 700;
@@ -34,7 +32,6 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  /* border: 1px solid blue; */
 
   &::after {
     content: "";
@@ -42,6 +39,5 @@
     height: 0.13rem;
     border-radius: 10px;
     background-color: #383838;
-    /* background-color: #c6f86b; */
   }
 }

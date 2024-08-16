@@ -140,7 +140,6 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    /* border: 1px solid red; */
   }
   .footerCell {
     grid-area: footerCell;
@@ -170,7 +169,6 @@
   background: none;
   background-color: #c6f86b;
   padding: 0px 5px;
-  /* border: 1px solid red; */
   border: none;
   cursor: pointer;
 
@@ -243,7 +241,6 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    /* border: 1px solid red; */
     & label {
       display: flex;
       justify-content: flex-start;
