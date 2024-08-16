@@ -116,52 +116,6 @@
       justify-content: center;
       align-items: center;
       border: 1px solid red;
-
-      .btn {
-        height: 70%;
-        width: 60%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: none;
-        background-color: #c6f86b;
-        padding: 0px 5px;
-        /* border: 1px solid red; */
-        border: none;
-        cursor: pointer;
-
-        .btnIconDiv {
-          height: 70%;
-          aspect-ratio: 1/1;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background: none;
-          outline: none;
-          border: none;
-          background-color: #101828;
-          padding: 8px;
-        }
-        .textDiv {
-          flex: 1;
-          height: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 0px 0px;
-          & p {
-            font-size: 0.8rem;
-            font-weight: 500;
-            @media (320px<=width<=480px) {
-              font-size: clamp(
-                1.5rem,
-                0.09999999999999964rem + 7.000000000000002vw,
-                2.2rem
-              ) !important;
-            }
-          }
-        }
-      }
     }
     .footerCell {
       grid-area: footerCell;
@@ -179,6 +133,52 @@
             1rem
           ) !important;
         }
+      }
+    }
+  }
+}
+
+.submitBtn {
+  height: 70%;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  background-color: #c6f86b;
+  padding: 0px 5px;
+  /* border: 1px solid red; */
+  border: none;
+  cursor: pointer;
+
+  .btnIconDiv {
+    height: 70%;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    outline: none;
+    border: none;
+    background-color: #101828;
+    padding: 8px;
+  }
+  .textDiv {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 0px;
+    & p {
+      font-size: 0.8rem;
+      font-weight: 500;
+      @media (320px<=width<=480px) {
+        font-size: clamp(
+          1.5rem,
+          0.09999999999999964rem + 7.000000000000002vw,
+          2.2rem
+        ) !important;
       }
     }
   }
