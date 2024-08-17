@@ -40,9 +40,9 @@
       color: #101828;
       @media (320px<=width<=480px) {
         font-size: clamp(
-          0.8rem,
-          0.5000000000000002rem + 1.4999999999999991vw,
-          0.95rem
+          0.5rem,
+          -0.10000000000000009rem + 3.0000000000000004vw,
+          0.8rem
         ) !important;
       }
     }
