@@ -9,7 +9,6 @@ import { useAppState } from "@/context/AppContext";
 
 const CartItemDeleteBtn = ({ itemId }) => {
   const [isDeleting, setIsDeleting] = useState(false);
-
   const { removeProductFromContextCart } = useAppState();
 
   const { data: session } = useSession();
@@ -19,7 +18,6 @@ const CartItemDeleteBtn = ({ itemId }) => {
     setIsDeleting(true);
     try {
       if (userId) {
-        console.log(itemId);
         const res = await removeProductFromDBCart(itemId);
         removeProductFromContextCart(itemId);
       } else {

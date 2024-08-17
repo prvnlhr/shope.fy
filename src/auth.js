@@ -22,7 +22,6 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
             throw new Error("No user found with the email");
           }
 
-          console.log(credentials.email, credentials.password);
 
           const isPasswordValid = await bcryptjs.compare(
             credentials.password,

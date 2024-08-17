@@ -43,7 +43,6 @@ export async function removeProductFromDBCart(productId) {
     const response = await fetch(`${BASE_URL}/api/cart/${productId}`, {
       method: "DELETE",
     });
-    console.log("response", response);
     if (!response.ok) {
       const errorData = await response.json();
       throw new Error(errorData.message || "Failed to remove item from cart");

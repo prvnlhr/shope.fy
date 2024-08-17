@@ -10,11 +10,7 @@ import { useAppState } from "@/context/AppContext";
 const CardQuantityToggleBtn = ({ item }) => {
   const [quantity, setQuantity] = useState(item.quantity);
   const [isUpdating, setIsUpdating] = useState(false);
-  const {
-    setSummaryData,
-    addOrUpdateProductInCart,
-    updateProductQuantityInCart,
-  } = useAppState();
+  const { updateProductQuantityInCart } = useAppState();
 
   const { data: session } = useSession();
   const userId = session?.user?.userId;
@@ -28,7 +24,7 @@ const CardQuantityToggleBtn = ({ item }) => {
       return;
     }
 
-    const updatedData = { 
+    const updatedData = {
       quantity: finalValue,
     };
     setIsUpdating(true);

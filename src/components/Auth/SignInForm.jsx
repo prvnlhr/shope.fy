@@ -37,7 +37,6 @@ const SignInForm = () => {
 
     onSubmit: async (values, { setSubmitting, setErrors }) => {
       try {
-        console.log(values.email, values.password);
         const res = await signIn("credentials", {
           email: values.email,
           password: values.password,
@@ -48,7 +47,7 @@ const SignInForm = () => {
           const error = JSON.parse(res.error);
           throw new Error(error);
         } else {
-          console.log("Successfully signed in", res);
+          console.log("Successfully signed in");
           router.push("/");
         }
       } catch (error) {

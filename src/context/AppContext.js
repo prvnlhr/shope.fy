@@ -36,7 +36,6 @@ export const AppStateProvider = ({ children }) => {
         (acc, item) => acc + item.quantity,
         0
       );
-      console.log(updatedCartItems, totalItems);
       updateSummaryData(updatedCartItems);
       return {
         cartItems: updatedCartItems,
