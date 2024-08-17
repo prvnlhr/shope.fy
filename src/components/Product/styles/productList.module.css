@@ -15,11 +15,12 @@
   align-items: center;
   padding: 5px 20px;
 }
+
 .listItemsWrapper {
   width: 100%;
   height: calc(100% - 50px);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 10px;
   overflow-y: scroll;
   padding: 30px 20px;
